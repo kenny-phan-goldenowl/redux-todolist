@@ -7,6 +7,7 @@ import {
 	removeTodo,
 	statusFilter,
 	taskFilter,
+	removeAll,
 } from "../redux/actions/actions";
 
 function Todo() {
@@ -45,41 +46,46 @@ function Todo() {
 						<i className='bx bx-chevron-down'></i>
 					</span>
 				</form>
-				<ul>
-					{items?.map((item, index) => (
-						<li className='todo__item' key={index}>
-							<span
-								onClick={() => dispatch(statusFilter(item.id))}
-								className='todo__item-icon1'
-							>
-								<i className='bx bx-circle'></i>
-							</span>
-							<span
-								onClick={() => dispatch(statusFilter(item.id))}
-								style={{ visibility: item.status ? "visible" : "hidden" }}
-								className='todo__item-icon2'
-							>
-								<i className='bx bx-check-circle'></i>
-							</span>
-							<label
-								onClick={() => dispatch(statusFilter(item.id))}
-								style={{
-									textDecoration: item.status ? "line-through" : "",
-									cursor: "pointer",
-								}}
-							>
-								{item.name}
-							</label>
-							<span
-								onClick={() => dispatch(removeTodo(index))}
-								className='todo__item-icon3'
-							>
-								<i className='bx bx-x'></i>
-							</span>
-						</li>
-					))}
-				</ul>
-				<div className='todo__filter'>
+				<div className='todo__show'>
+					<ul>
+						{items?.map((item, index) => (
+							<li className='todo__item' key={index}>
+								<span
+									onClick={() => dispatch(statusFilter(item.id))}
+									className='todo__item-icon1'
+								>
+									<i className='bx bx-circle'></i>
+								</span>
+								<span
+									onClick={() => dispatch(statusFilter(item.id))}
+									style={{ visibility: item.status ? "visible" : "hidden" }}
+									className='todo__item-icon2'
+								>
+									<i className='bx bx-check-circle'></i>
+								</span>
+								<label
+									onClick={() => dispatch(statusFilter(item.id))}
+									style={{
+										textDecoration: item.status ? "line-through" : "",
+										cursor: "pointer",
+									}}
+								>
+									{item.name}
+								</label>
+								<span
+									onClick={() => dispatch(removeTodo(index))}
+									className='todo__item-icon3'
+								>
+									<i className='bx bx-x'></i>
+								</span>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div
+					style={{ visibility: items.length ? "visible" : "hidden" }}
+					className='todo__filter'
+				>
 					<p className='todo__filter-remain'>{items.length} tasks left</p>
 					<div className='todo__filter-status'>
 						<button>All</button>
@@ -91,12 +97,15 @@ function Todo() {
 					<p
 						style={{ cursor: "pointer" }}
 						className='todo__filter-clear'
-						onClick={() => dispatch(removeTodo())}
+						onClick={() => dispatch(removeAll(items.length))}
 					>
-						Clear completed
+						Clear
 					</p>
 				</div>
-				<div className='todo__doubleline'>
+				<div
+					style={{ visibility: items.length ? "visible" : "hidden" }}
+					className='todo__doubleline'
+				>
 					<div></div>
 					<div></div>
 				</div>

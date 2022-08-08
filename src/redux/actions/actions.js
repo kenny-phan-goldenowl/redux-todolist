@@ -17,6 +17,13 @@ export const removeTodo = (data) => {
 	};
 };
 
+export const removeAll = (data) => {
+	return {
+		type: "todoList/removeAll",
+		payload: data,
+	};
+};
+
 export const statusFilter = (data) => {
 	return {
 		type: "filter/statusChange",

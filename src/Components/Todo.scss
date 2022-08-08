@@ -16,12 +16,17 @@
 }
 
 .todo__input span {
-	position: absolute;
+	position: relative;
 	font-size: 50px;
-	top: 158px;
-	left: 23%;
+	top: -72px;
+	left: 0;
 	opacity: 0.4;
 	cursor: pointer;
+}
+
+.todo__show {
+	position: relative;
+	top: -60px;
 }
 
 .todo__input span:hover {
@@ -30,8 +35,8 @@
 
 .todo input {
 	position: relative;
-	width: 150%;
-	left: -30%;
+	width: 86%;
+	left: -11px;
 	padding: 15px 50px;
 	margin: 0;
 	box-shadow: 0 0 20px #ccc;
@@ -87,6 +92,8 @@
 }
 
 .todo__filter {
+	position: relative;
+	top: -60px;
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
@@ -110,6 +117,8 @@
 }
 
 .todo__doubleline {
+	position: relative;
+	top: -60px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

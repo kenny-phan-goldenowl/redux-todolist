@@ -19,6 +19,15 @@ const reducer = (state = initState, action) => {
 			};
 		}
 
+		case "todoList/removeAll": {
+			const newTodo = [...state.todoList];
+			newTodo.splice(0, action.payload);
+			return {
+				...state,
+				todoList: newTodo,
+			};
+		}
+
 		case "filter/statusChange": {
 			let newTodo = state.todoList.map((todo) => {
 				if (todo.id === action.payload) {
