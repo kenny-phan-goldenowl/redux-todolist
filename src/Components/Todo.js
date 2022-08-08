@@ -88,7 +88,9 @@ function Todo() {
 					style={{ visibility: items.length ? "visible" : "hidden" }}
 					className='todo__filter'
 				>
-					<p className='todo__filter-remain'>{items.length} tasks left</p>
+					<p className='todo__filter-remain'>
+						{items.filter((item) => item.status === false).length} tasks left
+					</p>
 					<div className='todo__filter-status'>
 						<button>All</button>
 						<button onClick={() => dispatch(taskFilter(false))}>Active</button>
