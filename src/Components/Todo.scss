@@ -1,0 +1,118 @@
+@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
+
+.todo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.todo__title {
+	text-align: center;
+	font-size: 100px;
+	font-weight: 400;
+	margin-bottom: 20px;
+	color: rgba(175, 47, 47, 0.15);
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.todo__input span {
+	position: absolute;
+	font-size: 50px;
+	top: 158px;
+	left: 23%;
+	opacity: 0.4;
+	cursor: pointer;
+}
+
+.todo__input span:hover {
+	opacity: 1;
+}
+
+.todo input {
+	position: relative;
+	width: 150%;
+	left: -30%;
+	padding: 15px 50px;
+	margin: 0;
+	box-shadow: 0 0 20px #ccc;
+	border-radius: 10px;
+	border: none;
+	border: 10px solid #ccc;
+	font-size: 40px;
+}
+
+.todo input::placeholder {
+	opacity: 0.3;
+	font-style: italic;
+}
+
+.todo input:focus {
+	outline: none;
+}
+
+.todo__item {
+	position: relative;
+	padding: 25px 60px;
+	background: white;
+	list-style: none;
+	font-size: 30px;
+	box-shadow: 0 0 5px #ccc;
+}
+
+.todo__item .todo__item-icon1, 
+.todo__item .todo__item-icon2 {
+	position: absolute;
+	left: 10px;
+	bottom: 13px;
+	font-size: 40px;
+}
+
+.todo__item .todo__item-icon1:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.todo__item .todo__item-icon2 {
+	visibility: hidden;
+	color: green;
+}
+
+.todo__filter {
+	display: flex;
+	padding: 20px;
+	justify-content: space-between;
+	box-shadow: 0 0 5px #ccc;
+	font-size: 20px;
+}
+
+.todo__filter button{
+	font-size: 20px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.todo__filter button:hover{
+	outline-style: auto;
+}
+
+.todo__filter button:nth-child(2) {
+	margin: 0 20px;
+}
+
+.todo__doubleline {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.todo__doubleline div {
+	margin: 0 5px;
+	height: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 5px #ccc;
+}
+
+.todo__doubleline div:last-child {
+	margin: 0 10px;
+}
