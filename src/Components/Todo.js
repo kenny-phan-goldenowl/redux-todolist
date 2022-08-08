@@ -1,44 +1,98 @@
+import { useRef, useState } from "react";
 import "./Todo.scss";
+import { taskList } from "../redux/reducers/selector";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	addTodo,
+	removeTodo,
+	statusFilter,
+	taskFilter,
+} from "../redux/actions/actions";
 
 function Todo() {
-	const items = [
-		{
-			name: "eat",
-			status: "done",
-		},
-	];
+	const dispatch = useDispatch();
+	const items = useSelector(taskList);
+	const [task, setTask] = useState("");
+	const aim = useRef();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const id = new Date().getTime();
+		dispatch(
+			addTodo({
+				id: id,
+				name: task,
+				status: false,
+			})
+		);
+		aim.current.focus();
+		setTask("");
+	};
 
 	return (
 		<div className='todo'>
 			<h1 className='todo__title'>todos</h1>
 			<div>
-				<div className='todo__input'>
-					<input type='text' placeholder={"What needs to be done ?"} />
+				<form onSubmit={handleSubmit} className='todo__input'>
+					<input
+						ref={aim}
+						type='text'
+						placeholder='What needs to be done ?'
+						value={task}
+						onChange={(e) => setTask(e.target.value)}
+					/>
 					<span>
 						<i className='bx bx-chevron-down'></i>
 					</span>
-				</div>
+				</form>
 				<ul>
-					{items.map((item, index) => (
+					{items?.map((item, index) => (
 						<li className='todo__item' key={index}>
-							<span className='todo__item-icon1'>
+							<span
+								onClick={() => dispatch(statusFilter(item.id))}
+								className='todo__item-icon1'
+							>
 								<i className='bx bx-circle'></i>
 							</span>
-							<span className='todo__item-icon2'>
+							<span
+								onClick={() => dispatch(statusFilter(item.id))}
+								style={{ visibility: item.status ? "visible" : "hidden" }}
+								className='todo__item-icon2'
+							>
 								<i className='bx bx-check-circle'></i>
 							</span>
-							<label>{item.name}</label>
+							<label
+								onClick={() => dispatch(statusFilter(item.id))}
+								style={{
+									textDecoration: item.status ? "line-through" : "",
+									cursor: "pointer",
+								}}
+							>
+								{item.name}
+							</label>
+							<span
+								onClick={() => dispatch(removeTodo(index))}
+								className='todo__item-icon3'
+							>
+								<i className='bx bx-x'></i>
+							</span>
 						</li>
 					))}
 				</ul>
 				<div className='todo__filter'>
-					<p className='todo__filter-remain'>0 tasks left</p>
+					<p className='todo__filter-remain'>{items.length} tasks left</p>
 					<div className='todo__filter-status'>
 						<button>All</button>
-						<button>Active</button>
-						<button>Completed</button>
+						<button onClick={() => dispatch(taskFilter(false))}>Active</button>
+						<button onClick={() => dispatch(taskFilter(true))}>
+							Completed
+						</button>
 					</div>
-					<p style={{ cursor: "pointer" }} className='todo__filter-clear'>
+					<p
+						style={{ cursor: "pointer" }}
+						className='todo__filter-clear'
+						onClick={() => dispatch(removeTodo())}
+					>
 						Clear completed
 					</p>
 				</div>

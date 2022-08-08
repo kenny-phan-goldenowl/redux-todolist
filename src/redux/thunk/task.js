@@ -2,7 +2,7 @@ import { TaskAction } from "../actions";
 
 const addTask = (label) => (dispatch) => {
 	try {
-		dispatch(TaskAction.requestAdd());
+		dispatch(TaskAction.addTodo());
 		dispatch(TaskAction.add(label));
 		return { status: true };
 	} catch (error) {

@@ -67,14 +67,23 @@
 	font-size: 40px;
 }
 
+.todo__item .todo__item-icon3 {
+	position: absolute;
+	font-size: 40px;
+	right: 10px;
+	color: red;
+	opacity: 0.4;
+	cursor: pointer;
+}
+
 .todo__item .todo__item-icon1:hover {
 	cursor: pointer;
 	opacity: 0.5;
 }
 
 .todo__item .todo__item-icon2 {
-	visibility: hidden;
 	color: green;
+	cursor: pointer;
 }
 
 .todo__filter {
