@@ -67,7 +67,9 @@ function Todo() {
 									onClick={() => dispatch(statusFilter(item.id))}
 									style={{
 										textDecoration: item.status ? "line-through" : "",
+										opacity: item.status ? 0.5 : 1,
 										cursor: "pointer",
+										transition: "0.5s",
 									}}
 								>
 									{item.name}

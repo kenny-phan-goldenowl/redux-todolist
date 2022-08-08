@@ -18,8 +18,8 @@
 .todo__input span {
 	position: relative;
 	font-size: 50px;
-	top: -72px;
-	left: 0;
+	top: -67px;
+	left: -3px;
 	opacity: 0.4;
 	cursor: pointer;
 }
@@ -39,10 +39,10 @@
 	left: -11px;
 	padding: 15px 50px;
 	margin: 0;
-	box-shadow: 0 0 20px #ccc;
-	border-radius: 10px;
+	box-shadow: 0 0 60px #ccc;
+	border-radius: 5px;
 	border: none;
-	border: 10px solid #ccc;
+	border: 5px solid #ccc;
 	font-size: 40px;
 }
 
@@ -62,6 +62,9 @@
 	list-style: none;
 	font-size: 30px;
 	box-shadow: 0 0 5px #ccc;
+	&.todo__item:hover .todo__item-icon3 {
+		color: red;
+	}
 }
 
 .todo__item .todo__item-icon1, 
@@ -76,7 +79,7 @@
 	position: absolute;
 	font-size: 40px;
 	right: 10px;
-	color: red;
+	color: white;
 	opacity: 0.4;
 	cursor: pointer;
 }
@@ -103,7 +106,7 @@
 
 .todo__filter button{
 	font-size: 20px;
-	background-color: white;
+	background-color: rgba(236, 236, 236, 0.15);
 	border: none;
 	cursor: pointer;
 }

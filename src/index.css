@@ -6,3 +6,7 @@
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+
+body {
+	background-color: rgb(245, 245, 245);
+}
