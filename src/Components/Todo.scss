@@ -19,7 +19,7 @@
 	position: relative;
 	font-size: 50px;
 	top: -67px;
-	left: 5px;
+	left: 3px;
 	opacity: 0.4;
 	cursor: pointer;
 }
@@ -35,15 +35,15 @@
 
 .todo input {
 	position: relative;
-	width: 85%;
-	left: -4px;
+	width: 81.5%;
+	left: -1px;
 	padding: 15px 50px;
 	margin: 0;
-	box-shadow: 0 0 60px #ccc;
+	box-shadow: 0 0 20px #ccc;
 	border-radius: 5px;
-	border: none;
-	border: 5px solid #ccc;
-	font-size: 40px;
+	border: 1px solid #ccc;
+	font-size: 30px;
+	height: 50px;
 }
 
 .todo input::placeholder {
@@ -60,6 +60,8 @@
 	padding: 25px 60px;
 	background: white;
 	list-style: none;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
 	font-size: 30px;
 	box-shadow: 0 0 5px #ccc;
 	&.todo__item:hover .todo__item-icon3 {
@@ -130,8 +132,8 @@
 .todo__doubleline div {
 	margin: 0 5px;
 	height: 5px;
-	border: 1px solid #ccc;
-	box-shadow: 0 0 5px #ccc;
+	border: 1px solid rgb(213, 213, 213);
+	box-shadow: 0 0 5px rgb(213, 213, 213);
 }
 
 .todo__doubleline div:last-child {

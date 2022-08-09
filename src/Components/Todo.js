@@ -45,7 +45,7 @@ function Todo() {
 						value={task}
 						onChange={(e) => setTask(e.target.value)}
 					/>
-					<span>
+					<span style={{ visibility: items.length ? "visible" : "hidden" }}>
 						<i className='bx bx-chevron-down'></i>
 					</span>
 				</form>
@@ -92,7 +92,7 @@ function Todo() {
 					className='todo__filter'
 				>
 					<p className='todo__filter-remain'>
-						{items.filter((item) => item.status === false).length} tasks left
+						{items.filter((item) => item.status === false).length} items left
 					</p>
 					<div className='todo__filter-status'>
 						<button>All</button>
