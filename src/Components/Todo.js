@@ -18,16 +18,19 @@ function Todo() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const id = new Date().getTime();
-		dispatch(
-			addTodo({
-				id: id,
-				name: task,
-				status: false,
-			})
-		);
+		if (task) {
+			const id = new Date().getTime();
+			dispatch(
+				addTodo({
+					id: id,
+					name: task,
+					status: false,
+				})
+			);
+			aim.current.focus();
+			setTask("");
+		}
 		aim.current.focus();
-		setTask("");
 	};
 
 	return (
