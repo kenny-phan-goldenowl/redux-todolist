@@ -10,6 +10,7 @@ import {
 	removeAll,
 } from "../redux/actions/actions";
 import { TASK } from "../redux/actionsType";
+import { todoThunk, filterThunk } from "../redux/thunk/task";
 
 function Todo() {
 	const dispatch = useDispatch();
@@ -19,6 +20,16 @@ function Todo() {
 	const [currentFilter, setCurrentFilter] = useState(
 		TASK.SET_FILTER.FILTER_ALL
 	);
+
+	const useThunk = todoThunk({
+		name: { task },
+		status: false,
+	});
+
+	const usefilterThunk = filterThunk(false);
+
+	console.log(useThunk);
+	console.log(usefilterThunk);
 
 	const getTodosByFilter = useMemo(() => {
 		switch (currentFilter) {
@@ -93,7 +104,9 @@ function Todo() {
 										opacity: item.status ? 0.5 : 1,
 										cursor: "pointer",
 										transition: "0.5s",
+										contentEditable: "true",
 									}}
+									onDoubleClick={() => console.log("Dbclick")}
 								>
 									{item.name}
 								</label>

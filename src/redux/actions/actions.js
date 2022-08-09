@@ -37,17 +37,3 @@ export const statusFilter = (data) => {
 		payload: data,
 	};
 };
-
-export const taskFilterDone = () => {
-	return {
-		type: "filter/faskFilterDone",
-		payload: "",
-	};
-};
-
-export const taskFilterActive = () => {
-	return {
-		type: "filter/faskFilterActive",
-		payload: "",
-	};
-};
