@@ -114,11 +114,6 @@ function Todo() {
 					<p className='todo__filter-remain'>
 						{items.filter((item) => item.status === false).length} items left
 					</p>
-					{/*<div className='todo__filter-status' onChange={() => console.log("change")}>
-						<button>All</button>
-						<button onClick={() => dispatch(taskFilterActive())}>Active</button>
-						<button onClick={() => dispatch(taskFilterDone())}>Completed</button>
-					</div>*/}
 					<div className='todo__filter-status'>
 						<ul className='tasks'>
 							{Object.keys(TASK.SET_FILTER).map((type) => {

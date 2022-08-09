@@ -113,8 +113,13 @@
 	cursor: pointer;
 }
 
-.todo__filter button:hover{
-	outline-style: auto;
+.todo__filter button:hover {
+	opacity: 0.5;
+}
+
+.todo__filter button:focus {
+	padding: 5px;
+	outline: auto;
 }
 
 .todo__filter button:nth-child(2) {

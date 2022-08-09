@@ -46,20 +46,6 @@ const reducer = (state = initState, action) => {
 			return { ...state, todoList: [...newTodo] };
 		}
 
-		case "filter/taskFilterDone": {
-			let newTodo = state.todoList.filter((todo) => {
-				if (todo.status === true) return true;
-			});
-			return { ...state, todoList: newTodo };
-		}
-
-		case "filter/taskFilterActive": {
-			let newTodo = state.todoList.filter((todo) => {
-				if (todo.status === false) return true;
-			});
-			return { ...state, todoList: newTodo };
-		}
-
 		default:
 			return state;
 	}
