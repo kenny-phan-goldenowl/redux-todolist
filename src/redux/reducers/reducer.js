@@ -28,6 +28,14 @@ const reducer = (state = initState, action) => {
 			};
 		}
 
+		case "todoList/doneAll": {
+			let newTodo = state.todoList.map((todo) => {
+				todo = { ...todo, status: !todo.status };
+				return todo;
+			});
+			return { ...state, todoList: [...newTodo] };
+		}
+
 		case "filter/statusChange": {
 			let newTodo = state.todoList.map((todo) => {
 				if (todo.id === action.payload) {
@@ -38,17 +46,18 @@ const reducer = (state = initState, action) => {
 			return { ...state, todoList: [...newTodo] };
 		}
 
-		case "filter/taskFilter": {
-			let indexList = [];
-			const newTodo = [...state.todoList];
-			newTodo.forEach((item, index) => {
-				if (item.status === action.payload) indexList.push(index);
+		case "filter/taskFilterDone": {
+			let newTodo = state.todoList.filter((todo) => {
+				if (todo.status === true) return true;
 			});
-			indexList.forEach((item, index) => newTodo.splice(item - index, 1));
-			return {
-				...state,
-				todoList: [...newTodo],
-			};
+			return { ...state, todoList: newTodo };
+		}
+
+		case "filter/taskFilterActive": {
+			let newTodo = state.todoList.filter((todo) => {
+				if (todo.status === false) return true;
+			});
+			return { ...state, todoList: newTodo };
 		}
 
 		default:

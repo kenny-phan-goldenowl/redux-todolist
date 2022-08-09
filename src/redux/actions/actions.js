@@ -24,6 +24,13 @@ export const removeAll = (data) => {
 	};
 };
 
+export const doneAll = () => {
+	return {
+		type: "todoList/doneAll",
+		payload: "",
+	};
+};
+
 export const statusFilter = (data) => {
 	return {
 		type: "filter/statusChange",
@@ -31,9 +38,16 @@ export const statusFilter = (data) => {
 	};
 };
 
-export const taskFilter = (data) => {
+export const taskFilterDone = () => {
 	return {
-		type: "filter/faskFilter",
-		payload: data,
+		type: "filter/faskFilterDone",
+		payload: "",
+	};
+};
+
+export const taskFilterActive = () => {
+	return {
+		type: "filter/faskFilterActive",
+		payload: "",
 	};
 };
